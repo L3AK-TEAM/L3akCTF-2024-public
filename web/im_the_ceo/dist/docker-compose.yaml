@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app_ceo:
+    image: challenge-web-im-the-ceo-app
+    build: app
+    ports:
+      - 9670:8080
+    networks:
+      - internal_ceo
+    depends_on:
+      - bot_ceo
+    container_name: challenge-web-im-the-ceo-app
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+  bot_ceo:
+    image: challenge-web-im-the-ceo-bot
+    build: bot
+    ports:
+      - 9671:3000
+    environment:
+      APPNAME: Admin Bot
+      APPFLAG: L3AK{test_flag}
+      APPLIMIT: 2
+      APPLIMITTIME: 60
+      USE_PROXY: 1
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+    networks:
+      - internal_ceo
+    container_name: challenge-web-im-the-ceo-bot
+
+networks:
+  internal_ceo:

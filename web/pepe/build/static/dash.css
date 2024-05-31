@@ -1,0 +1,538 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+
+:root {
+  --light: #f6f6f9;
+  --primary: #1976d2;
+  --light-primary: #cfe8ff;
+  --grey: #eee;
+  --dark-grey: #aaaaaa;
+  --dark: #363949;
+  --danger: #d32f2f;
+  --light-danger: #fecdd3;
+  --warning: #fbc02d;
+  --light-warning: #fff2c6;
+  --success: #388e3c;
+  --light-success: #bbf7d0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+}
+
+.bx {
+  font-size: 1.7rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* ========Utality Classes Start=================== */
+body.dark {
+  --light: #181a1e;
+  --grey: #25252c;
+  --dark: #fbfbfb;
+}
+
+body {
+  background-color: var(--grey);
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--light);
+  width: 260px;
+  height: 100%;
+  z-index: 2;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  box-shadow: 02px 0 10px var(--grey);
+  transition: all 0.3s ease-in;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar.close {
+  width: 60px;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+  height: 56px;
+  color: var(--dark);
+  z-index: 1;
+  font-weight: 700;
+  margin: 1rem 0.5rem;
+}
+
+.sidebar .logo img {
+  width: 25%;
+  margin: 1rem 0;
+}
+
+.sidebar .logo span {
+  margin-left: 0.5rem;
+  color: var(--success);
+}
+
+.sidebar .side-menu {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.sidebar .side-menu li {
+  margin: 0.5rem 0;
+  height: 3rem;
+  background-color: transparent;
+}
+
+.sidebar .side-menu li.active {
+  border-left: var(--success) 6px solid;
+  background: var(--dark);
+  transition: all 0.3s ease-in;
+}
+
+.sidebar .side-menu li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+  color: var(--dark);
+}
+
+.sidebar .side-menu li.active a {
+  color: var(--success);
+}
+
+.sidebar.close .side-menu li a {
+  width: calc(80px - 12px);
+  transition: all 0.3s ease-in;
+}
+
+.sidebar .side-menu li a .bx {
+  min-width: calc(80px - 20px);
+  display: flex;
+  justify-content: center;
+  font-size: 1.7rem;
+}
+
+.sidebar.close .logo img {
+  width: 100%;
+}
+
+.side-menu li a.logout {
+  color: var(--danger);
+}
+
+.content {
+  position: relative;
+  width: calc(100% - 260px);
+  left: 260px;
+  transition: all 0.3s ease;
+}
+
+.sidebar.close ~ .content {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+.content nav {
+  height: 56px;
+  background-color: var(--light);
+  padding: 2.5rem 1rem;
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.content nav a {
+  color: var(--dark);
+}
+
+.content nav .bx.bx-menu {
+  cursor: pointer;
+  color: var(--dark);
+  font-size: 2rem;
+}
+
+.content nav form {
+  max-width: 600px;
+  width: 100%;
+  margin-right: auto;
+}
+
+.content nav form .form-input {
+  display: flex;
+  align-items: center;
+  height: 46px;
+}
+
+.content nav form .form-input input {
+  flex-grow: 1;
+  padding: 0 16px;
+  height: 100%;
+  border: none;
+  background-color: var(--grey);
+  border-radius: 36px 0 0 36px;
+  outline: none;
+  color: var(--dark);
+  width: 100%;
+  font-family: inherit;
+}
+
+.content nav form .form-input button {
+  width: 80px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--success);
+  color: var(--light);
+  font-size: 18px;
+  outline: none;
+  border: none;
+  border-radius: 0 36px 36px 0;
+  cursor: pointer;
+}
+
+.content nav form .form-input button .bx-search {
+  color: #fff;
+}
+
+.content nav .notification {
+  font-size: 20px;
+  position: relative;
+}
+
+.content nav .notification span {
+  position: absolute;
+  top: -6px;
+  width: 26px;
+  height: 20px;
+  background-color: var(--danger);
+  border-radius: 50%;
+  color: var(--light);
+  border: 2px solid var(--light);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.content nav .profile img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--dark-grey);
+}
+
+main {
+  width: 100%;
+  padding: 2.2rem 1.5rem;
+  max-height: calc(100vh - 65px);
+}
+
+main .header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--dark);
+}
+
+main .breadcrumb {
+  display: flex;
+  align-items: center;
+  grid-gap: 1.2rem;
+}
+
+main .breadcrumb li {
+  color: var(--dark);
+}
+
+main .breadcrumb li a {
+  color: var(--dark);
+  pointer-events: none;
+}
+
+main .breadcrumb li a.active {
+  color: var(--success);
+}
+
+main .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+main .cards li {
+  padding: 1.8rem;
+  background-color: var(--light);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  grid-gap: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+main .cards li:hover {
+  transform: translateY(-10px);
+}
+
+main .cards li .bx {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 10px;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .cards li:nth-child(1) .bx {
+  background-color: var(--light-primary);
+  color: var(--primary);
+}
+
+main .cards li:nth-child(2) .bx {
+  background-color: var(--light-warning);
+  color: var(--warning);
+}
+
+main .cards li:nth-child(3) .bx {
+  background-color: var(--light-danger);
+  color: var(--danger);
+}
+
+main .cards li:nth-child(4) .bx {
+  background-color: var(--light-success);
+  color: var(--success);
+}
+
+main .cards li .info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+main .cards li .info p {
+  color: var(--dark);
+}
+
+/* ========Orders Details Start=================== */
+.content main .bottom_data {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  grid-gap: 24px;
+  margin-top: 24px;
+  color: var(--dark);
+}
+
+.content main .bottom_data > div {
+  border-radius: 10px;
+  background-color: var(--light);
+  padding: 24px;
+  overflow-x: auto;
+}
+
+main .bottom_data .header {
+  display: flex;
+  align-items: center;
+  grid-gap: 16px;
+  margin-bottom: 24px;
+}
+
+main .bottom_data .header h3 {
+  font-size: 24px;
+  font-weight: 600px;
+}
+
+main .bottom_data .orders {
+  flex-grow: 1;
+  flex-basis: 500;
+}
+
+main .bottom_data .orders table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+main .bottom_data .orders table th {
+  padding: 12px 10px;
+  font-size: 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--grey);
+  background-color: var(--grey);
+  color: var(--dark);
+}
+
+main .bottom_data .orders table td {
+  padding: 12px 10px;
+}
+
+.content main .bottom_data .orders table .img_content {
+  display: flex;
+  align-items: center;
+  grid-gap: 12px;
+  padding-left: 6px;
+}
+
+.content main .bottom_data table td img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.content main .bottom_data .orders table tbody tr {
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.content main .bottom_data .orders table tbody tr:nth-child(even) {
+  background-color: var(--grey);
+}
+
+.content main .bottom_data .orders table td .status {
+  font-size: 10px;
+  padding: 6px 16px;
+  color: var(--light);
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.content main .bottom_data .orders table td .status.completed {
+  background-color: var(--success);
+}
+
+.content main .bottom_data .orders table td .status.processing {
+  background-color: var(--primary);
+}
+
+.content main .bottom_data .orders table td .status.pending {
+  background-color: var(--warning);
+}
+
+main .bottom_data .reminders {
+  flex-grow: 1;
+  flex-basis: 300px;
+}
+
+main .bottom_data .reminders .task_list {
+  width: 100%;
+}
+
+main .bottom_data .reminders .task_list li {
+  width: 100%;
+  margin-bottom: 16px;
+  background-color: var(--grey);
+  padding: 14px 10px;
+  border-radius: 05px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main .bottom_data .reminders .task_list li .task_title {
+  display: flex;
+  align-items: center;
+}
+
+main .bottom_data .reminders .task_list li .task_title p {
+  margin-left: 6px;
+}
+
+main .bottom_data .reminders .task_list li .bx {
+  cursor: pointer;
+}
+
+main .bottom_data .reminders .task_list li.completed {
+  border-left: 5px solid var(--success);
+}
+
+main .bottom_data .reminders .task_list li.uncomplete {
+  border-left: 5px solid var(--danger);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  .content {
+    width: calc(100% - 60px);
+    left: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .content nav form .form-input input {
+    display: none;
+  }
+
+  .content nav form .form-input button {
+    background-color: var(--dark-grey);
+  }
+
+  .content nav form .form-input input {
+    width: 100%;
+    display: block;
+  }
+
+  .content nav form.show .form-input button {
+    width: 36px;
+    height: 100%;
+    color: var(--light);
+    background-color: var(--dark);
+    border-radius: 0 36px 36px 0;
+  }
+
+  .content nav form.show ~ .notification,
+  .content nav form.show ~ .profile {
+    display: none;
+  }
+
+  main .cards {
+    grid-template-columns: 1fr;
+  }
+
+  main .bottom_data .header {
+    min-width: 340px;
+  }
+
+  main .bottom_data .orders table {
+    min-width: 340px;
+  }
+
+  main .bottom_data .reminders .task_list {
+    min-width: 340px;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "awesome",
+  "version": "0.1.0",
+  "files": [
+    "awesome_bg.wasm",
+    "awesome.js",
+    "awesome.d.ts"
+  ],
+  "module": "awesome.js",
+  "types": "awesome.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

@@ -1,0 +1,7 @@
+# Ignore the following files when copying the project files into the docker container:
+.dockerignore
+Dockerfile
+__pycache__
+generate_symbols.py
+all_symbols.png
+test.py

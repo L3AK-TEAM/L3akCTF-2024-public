@@ -1,0 +1,24 @@
+import sage.matrix.matrix_mod2_dense as mm2
+cimport sage.matrix.matrix_mod2_dense as cmm2
+
+import numpy
+cimport numpy as cnp
+cimport cython
+
+cnp.import_array()
+ctypedef cnp.uint64_t DTYPE_T
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def fill_matrix(cmm2.Matrix_mod2_dense M, cnp.ndarray[cnp.uint32_t, ndim=2] rows):
+    cdef int mrows = M.nrows()
+    cdef int mcolumns = M.ncols()
+    cdef int i = 0
+    cdef int j = 0
+    if rows.shape[0] != mrows or rows.shape[1] != mcolumns:
+        raise TypeError("Wrong shape")
+    if mcolumns != len(rows[0]):
+        raise TypeError("Shape is wrong")
+    for i in range(mrows):
+        for j in range(mcolumns):
+            M.set_unsafe(i,j,rows[i,j])

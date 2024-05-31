@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app_not_ceo:
+    image: challenge-web-im-not-the-ceo-app
+    build: app
+    ports:
+      - 9674:8080
+    networks:
+      - internal_not_ceo
+    depends_on:
+      - bot_not_ceo
+    container_name: challenge-web-im-not-the-ceo-app
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+  bot_not_ceo:
+    image: challenge-web-im-not-the-ceo-bot
+    build: bot
+    ports:
+      - 9675:3000
+    environment:
+      APPNAME: Admin Bot
+      APPFLAG: L3AK{im_actually_never_touching_htmx_and_go_again}
+      APPLIMIT: 2
+      APPLIMITTIME: 60
+      USE_PROXY: 1
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    networks:
+      - internal_not_ceo
+    container_name: challenge-web-im-not-the-ceo-bot
+
+networks:
+  internal_not_ceo:

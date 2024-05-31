@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/dash.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <script defer src="static/script.js"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- =============Sidebar Start================ -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+          <img src="static/img/image1.png" alt="" />
+          <span>The</span>L3aks
+        </a>
+        <ul class="side-menu">
+          <li class="active">
+            <a href="#"><i class="bx bxs-dashboard"></i>Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="bx bx-video"></i>Content</a>
+          </li>
+          <li>
+            <a href="#"><i class="bx bx-bar-chart"></i>Analytics</a>
+          </li>
+          <li>
+            <a href="#"><i class="bx bx-comment-detail"></i>Comments</a>
+          </li>
+          <li>
+            <a href="#"><i class="bx bx-customize"></i>Customize</a>
+          </li>
+          <li>
+            <a href="#"><i class="bx bx-group"></i>Users</a>
+          </li>
+          <li>
+            <a href="#"><i class="bx bx-cog"></i>Settings</a>
+          </li>
+        </ul>
+  
+        <div class="side-menu">
+          <ul>
+            <li>
+              <a href="#"><i class="bx bx-moon"></i>Dark / Light</a>
+            </li>
+            <li>
+              <a href="{{ url_for('logout') }}" class="logout"
+                ><i class="bx bx-log-out-circle"></i>Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- =============Sidebar Close================ -->
+
+      <!-- NavBar Start-->
+
+      <div class="content">
+        <nav>
+          <i class="bx bx-menu"></i>
+          <form action="#">
+            <div class="form-input">
+              <input type="search" placeholder="Search................" />
+              <button type="submit"><i class="bx bx-search"></i></button>
+            </div>
+          </form>
+          <a href="#" class="notification">
+            <i class="bx bx-bell"></i>
+            <span>12</span>
+          </a>
+  
+          <a href="#" class="profile">
+            <img src="static/img/image2.png" alt="" />
+          </a>
+        </nav>
+
+        <!-- NavBar Close -->
+
+        <!-- Main Start -->
+      <main>
+        <div class="header">
+          <h1>Dashboard</h1>
+          <ul class="breadcrumb">
+            <li><a href="#" class="active">Analytics</a></li>
+            /
+            <li><a href="#">Content</a></li>
+          </ul>
+        </div>
+
+        <!--============= cards start ===============-->
+        <div class="cards">
+          <div class="card">
+            <i class="bx bx-user"></i>
+            <div class="card-info">
+              <h2>Users</h2>
+              <p>1,234</p>
+            </div>
+          </div>
+          <div class="card">
+            <i class="bx bx-file"></i>
+            <div class="card-info">
+              <h2>Files</h2>
+              <p>567</p>
+            </div>
+          </div>
+          <div class="card">
+            <i class="bx bx-message"></i>
+            <div class="card-info">
+              <h2>Messages</h2>
+              <p>890</p>
+            </div>
+          </div>
+          <div class="card">
+            <i class="bx bx-calendar"></i>
+            <div class="card-info">
+              <h2>Events</h2>
+              <p>123</p>
+            </div>
+          </div>
+        </div>
+        <!--============= cards close ===============-->
+
+        <!--============= bottom Data Start ===============-->
+        <div class="bottom_data">
+          <div class="orders">
+            <div class="header">
+              <h3>Recent </h3>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>{{ fortunes }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>103326</td>
+                  <td class="img_content">
+                    <img src="static/img/image3.png" alt="" />
+                    <p>John Doe</p>
+                  </td>
+                  <td>admin@pepe.team</td>
+                  <td>6th Sep 2025</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>103626</td>
+                  <td class="img_content">
+                    <img src="static/img/image3.png" alt="" />
+                    <p>Jullee Smith</p>
+                  </td>
+                  <td>JulleeS@pepe.team</td>
+                  <td>6th Sep 2025</td>
+                  <td><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>103926</td>
+                  <td class="img_content">
+                    <img src="static/img/image2.png" alt="" />
+                    <p>Willims</p>
+                  </td>
+                  <td>Willims@pepe.team</td>
+                  <td>6th Sep 2025</td>
+                  <td><span class="status processing">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>103326</td>
+                  <td class="img_content">
+                    <img src="static/img/image2.png" alt="" />
+                    <p>John Doe</p>
+                  </td>
+                  <td>John@pepe.team</td>
+                  <td>6th Sep 2025</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>103626</td>
+                  <td class="img_content">
+                    <img src="static/img/image1.png" alt="" />
+                    <p>Jullee Smith</p>
+                  </td>
+                  <td>JSmith@pepe.team</td>
+                  <td>6th Sep 2025</td>
+                  <td><span class="status pending">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!--============= Reminder Start ===============-->
+          <div class="reminders">
+            <div class="header">
+              <h3>Reminders</h3>
+            </div>
+            <ul class="task_list">
+              <li class="completed">
+                <div class="task_title">
+                  <i class="bx bx-check-circle"></i>
+                  <p>Start Our Meeting</p>
+                </div>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+              <li class="completed">
+                <div class="task_title">
+                  <i class="bx bx-check-circle"></i>
+                  <p>Analysis Our Site</p>
+                </div>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+
+              <li class="uncomplete">
+                <div class="task_title">
+                  <i class="bx bx-x-circle"></i>
+                  <p>Play Snooker</p>
+                </div>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+              <li class="completed">
+                <div class="task_title">
+                  <i class="bx bx-check-circle"></i>
+                  <p>Start Our Meeting</p>
+                </div>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+              <li class="uncomplete">
+                <div class="task_title">
+                  <i class="bx bx-x-circle"></i>
+                  <p>Play Snooker</p>
+                </div>
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </li>
+            </ul>
+          </div>
+          <!--============= Reminder Close ===============-->
+        </div>
+        <!--============= bottom Data Start ===============-->
+      </main>
+      <!-- Main Close -->
+    </div>
+    <!-- =============Contetn CLose================ -->
+
+</body>
+</html>

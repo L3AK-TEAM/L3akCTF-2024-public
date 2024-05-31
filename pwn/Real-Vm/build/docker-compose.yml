@@ -1,0 +1,10 @@
+version: '3'
+services:
+  dist_real_vm:
+    devices:
+      - "/dev/kvm:/dev/kvm"    
+    build: .
+    ports:
+      - "7671:5000"
+    privileged: true
+    restart: unless-stopped

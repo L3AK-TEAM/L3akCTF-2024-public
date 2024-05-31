@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboad</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+  <div class="navbar bg-base-100">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl" href="/">KrySS</a>
+    </div>
+    <div class="flex-none">
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+          <div class="card-body">
+          </div>
+        </div>
+      </div>
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img alt="Tailwind CSS Navbar component"
+              src="https://img.freepik.com/free-photo/white-notebook-black-data-firewall_1150-1733.jpg" />
+          </div>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a class="text-error" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col w-full border-opacity-50">
+    <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+
+      <div class="join">
+
+        <button class="btn btn-outline btn-warning"><a href="{{ url_for('get_notes') }}">Get Notes</a></button>
+        <button class="btn btn-outline btn-success"><a href="{{ url_for('post_note') }}">Add Note</a></button>
+
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="grid h-20 card bg-base-900 rounded-box place-items-center">
+
+      {% if msg %}
+      {{ msg }}
+      {% endif %}
+
+      {% if notes %}
+      <div class="container">
+        <table class="table table-zebra">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Notes</th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            {% for note in notes %}
+            {% if note[0] == "" %}
+            {% else %}
+            <tr>
+              <td>
+              </td>
+              <td>
+
+                <div class="text-lg font-bold"> <a href="/note/{{ username }}/{{ note[1] }}">{{ note[0] }}</a></div>
+                {% endif %}
+              </td>
+              <td>
+                <div class="text-lg font-bold"><a href="/note/{{ username }}/{{ note[1] }}">Go to</a></div>
+              </td>
+            </tr>
+
+            {% endfor %}
+
+
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+      {% if err %}
+      <form action="{{ url_for('post_note') }}" method="POST" class="form-control">
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">{{ err }}</span>
+            <span class="label-text-alt"></span>
+          </div>
+          <textarea name="note" placeholder="Enter Your Note"
+            class="textarea textarea-bordered textarea-lg w-full max-w-xs" required></textarea>
+          <div class="label">
+            <span class="label-text-alt">Notes</span>
+            <span class="label-text-alt"></span>
+          </div>
+        </label>
+        <button type="submit" class="btn btn-primary">
+          Post Note
+        </button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+
+
+  </div>
+</body>
+<script src="https://cdn.tailwindcss.com"></script>
+
+</html>

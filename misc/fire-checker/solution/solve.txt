@@ -1,0 +1,1 @@
+AA XX replace "Incorrect," "Correct!" +1 replace "you\x20guessed\x20AA,\x20but\x20the\x20flag\x20is\x20" "" +1 replace "." "\x20is\x20the\x20flag!" +1 replace "\n" "" +1 -- --separator XX

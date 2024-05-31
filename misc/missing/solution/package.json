@@ -1,0 +1,12 @@
+{
+  "name": "tree-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "solve.js",
+  "type": "module",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  }
+}

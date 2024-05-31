@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app:
+    image: challenge-web-kryss20-app
+    container_name: challenge-web-kryss20-app
+    build: app
+    ports:
+      - 9666:8080
+    networks:
+      - internal
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+    depends_on:
+      - bot
+  bot:
+    image: challenge-web-kryss20-bot
+    container_name: challenge-web-kryss20-bot
+    build: bot
+    ports:
+      - 9667:3000
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+    environment:
+      APPNAME: Admin Bot
+      APPFLAG: L3AK{N3v3r__trsut_4n_LCG_0r_4ny_on3_us1ng_1t_31138}
+      APPLIMIT: 2
+      APPLIMITTIME: 60
+      USE_PROXY: 1
+    networks:
+      - internal
+
+networks:
+  internal:

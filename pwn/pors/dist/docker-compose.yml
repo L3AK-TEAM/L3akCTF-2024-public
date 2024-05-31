@@ -1,0 +1,8 @@
+version: '3'
+services:
+  dist_pors:
+    build: .
+    ports:
+      - "9997:5000"
+    privileged: true
+    restart: unless-stopped

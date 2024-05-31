@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L3aks Flag Proof Validator</title>
+<style>
+    body {
+        background-color: #121212;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+        padding: 20px;
+    }
+    .heading {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    textarea {
+        width: 80%;
+        height: 600px;
+        margin-bottom: 20px;
+        color: white;
+        background-color: #424242;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 10px;
+    }
+    button {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #1976d2;
+        color: #ffffff;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #1565c0;
+    }
+    #response {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+    .correct {
+        color: #00FF00;
+    }
+    .wrong {
+        color: #FF0000;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1 class="heading">L3aks Flag Proof Validator</h1>
+    <textarea id="inputText" class="input-box" placeholder="Enter proof here...">{
+        "leaves": [
+          ["0x245f"],
+          ["0x047b"],
+          ["0x0f33"],
+          ["0x0e33"],
+          ["0x115f"],
+          ["0x135f"],
+          ["0x175f"],
+          ["0x034b"],
+          ["0x1575"],
+          ["0x2a5f"],
+          ["0x347d"],
+          ["0x1b5f"],
+          ["0x305f"],
+          ["0x0b5f"],
+          ["0x0241"],
+          ["0x205f"],
+          ["0x0133"],
+          ["0x004c"]
+        ],
+        "proof": [
+          "0x056598c127af600b14af0afc9ddc1c67198f9a7e25b71e5fd55faae8bbd36d86",
+          "0x144ed2c9f6ff01fdf78e1cc644fe3d95a95fd2fe1ed77a58507f5da78ff05f20",
+          "0x1e3b656119cc8baf71c42441183222ab3adf4d826f2882c53690cca6dad8d79f",
+          "0x2980f1917103d13f85c6c303314adc45c39cfc2d7958c25c19bde11f1ce5a5ad",
+          "0x4fe89595fdb35e1f5a3d9e229318b56fe182fd4cb9ad51a645a39e488114ec27",
+          "0x541bc0a7a40a0befb9ddaf968806122968bcde23dd367c5ca8e4101021ff8780",
+          "0x57e2cea585cf4b936d0c0f3b741c1c17f8a098bf629dfd6f3a94c86e7dad6de0",
+          "0x67cadc87d41b9341d2d284afb1a5086419576225201cc422d8fa298c4a309604",
+          "0x8a06f504ade0e8372e263666a8fb26858a76f13d622da423f7c003fca4131406",
+          "0x9621a1df2013c8b2d578f74977a9a989db8b54291da69353363e1e342042786d",
+          "0xcb7c375fbbd4f0c0d75424f64158d5b270acacb3e0d1be3e9cb20f92cf19ded8",
+          "0xd4ff96ef079fcf74e735ab6edd089535eee307d39b0a52524f9bc2319c9c03b4",
+          "0xda68cac114aa4dfd249caa3051829d198ef332bf118ff9246c13f6894314c2ce",
+          "0xe00b3e132c8112490d164269b0390799900df47f44b2ad856030857c4dba014f",
+          "0xfbf973526b06dab8d669d08bb6f07bb1cfb54c0ab011f7933592a420a4b8859b",
+          "0x89b22b9ac564da8a828234aaa77ef9390e00193b115573d131d046873b575ca9",
+          "0x403a7b8ace9ea6fcdd79886a1410ce955938f6e2f5e3650f815dcbaed4d2c3ce",
+          "0xdcb24e0e84dea1b590e31e5c8b70925796f7daf2dee939ea61c7babe6523caf1",
+          "0x94052ea1591c5d220aace09be5d8f716afeb1c57725e25782e714d7dbd5b49d3",
+          "0x7d445306b69d3ecf86b5ed3bc7712d88f484e984e4e3fbe708bd891cf1140bf7",
+          "0xf649e66155e7ec1e8a08db5e6c077d1890696157767b49c9ee8a5df0f9a8320f",
+          "0x55f19ce476c13d483b0052fafc41375120e56cf99fefb53bd43ebb88fafd04e0",
+          "0x0ffab6ee5eaa93cea0d097ff183236133b1fbdba56509454c8d23f05092b037e",
+          "0x80787accc60ddad9832dbe33e0a73b81d0f4b7b5b8363af14e638671c20e6d27"
+        ],
+        "proofFlags": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }</textarea><br>
+    <button onclick="submitProof()">Submit</button>
+    <div id="response"></div>
+    <div id="flag"></div>
+</div>
+
+<script>
+function setResponse(state, msg) {
+    const responseElement = document.getElementById('response');
+    if(state == "waiting") {
+        responseElement.innerText = 'Submitting...';
+        responseElement.className = '';
+    } else if(state == "correct") {
+        responseElement.innerText = 'Correct!';
+        responseElement.className = 'correct';
+    } else if(state == "wrong") {
+        responseElement.innerText = 'Wrong!';
+        responseElement.className = 'wrong';
+    } else {
+        responseElement.innerText = 'something went wrong: ' + msg;
+        responseElement.className = '';
+    }
+}
+
+function keccak(arr) {
+  const hash = CryptoJS.SHA3(arr, { outputLength: 256 }).toString(CryptoJS.enc.Hex)
+  return hash
+}
+
+function showFlag(leafs) {
+    console.log(leafs)
+    leafs = leafs.map(hex => {
+        const byte1 = parseInt(hex[0].substring(2, 4), 16).toString();
+        const byte2 = String.fromCharCode(parseInt(hex[0].substring(4), 16));
+        console.log(hex[0].substring(2, 4))
+        return [byte1, byte2];
+    })
+    const reconstructedStringArray = new Array(Math.max(...leafs.map(([num]) => num)) + 1).fill('□');
+    leafs.forEach(([position, letter]) => {
+        reconstructedStringArray[position] = letter;
+    });
+    const reconstructedString = reconstructedStringArray.join('');
+    const flagElement = document.getElementById('flag');
+    flagElement.innerHTML = reconstructedString;
+}
+
+async function submitProof() {
+    const flagElement = document.getElementById('flag');
+    flagElement.innerHTML = '';
+    setResponse('waiting');
+    providerUrl = 'https://sepolia.base.org'
+    let provider = new ethers.providers.JsonRpcProvider(providerUrl);
+    ABI = ["function multiProofVerify(bytes32[] memory proof, bool[] memory proofFlags, bytes32[] memory leaves) external view returns (bool)"]
+    const contract = new ethers.Contract('0x4a5962bC1eE9024C50811De6afDdd61c5eb7573c', ABI, provider);
+    const input = document.getElementById('inputText').value;
+
+    try {
+        var data = JSON.parse(input)
+
+        var proof = data.proof;
+        var proofFlags = data.proofFlags;
+        var leaves = data.leaves;
+
+        leavesHash = leaves.map(p => {
+            const hexArr = CryptoJS.enc.Hex.parse(p[0].slice(2))
+            return '0x' + keccak(hexArr)
+        })
+
+        const result = await contract.multiProofVerify(proof, proofFlags, leavesHash);
+        if (result == true) {
+            setResponse('correct')
+            showFlag(leaves)
+        } else {
+            setResponse('wrong')
+        }
+    } catch (error) {
+        setResponse('wtf', error);
+        return
+    }
+}
+</script>
+</body>
+</html>

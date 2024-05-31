@@ -1,0 +1,1 @@
+FLAG = 'L3AK{0pT!cal_chaR4Ct3R_R3cOgN!tIon_i5_fUN}'

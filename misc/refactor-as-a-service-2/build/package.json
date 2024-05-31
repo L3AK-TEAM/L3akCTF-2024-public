@@ -1,0 +1,13 @@
+{
+  "name": "refactor-as-a-service-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "SteakEnthusiast",
+  "license": "ISC",
+  "dependencies": {
+    "not-a-real-refactoring-tool": "^1.0.0"
+  },
+  "type": "module"
+}

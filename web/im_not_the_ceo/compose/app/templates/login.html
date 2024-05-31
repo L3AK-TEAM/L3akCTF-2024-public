@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.js" integrity="sha384-qbtR4rS9RrUMECUWDWM2+YGgN3U4V4ZncZ0BvUcg9FGct0jqXz3PUdVpU1p0yrXS" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/json-enc.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    
+    <div class="login-form">
+        <h1>Login</h1>
+        <form hx-post="/api/login" hx-trigger="submit" hx-target="#auth-message" hx-target="#auth-message" hx-swap="innerHTML" hx-ext="json-enc">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+
+        <p> Don't have an account? Register <a href="/register">here!</a></p>
+    </div>
+    
+    <div id="auth-message"></div>
+    <script src="/static/main.js"></script>
+</body>
+</html>

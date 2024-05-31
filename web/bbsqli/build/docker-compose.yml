@@ -1,0 +1,13 @@
+version: '3'
+services:
+  challenge-web-bbsqli:
+    build: .
+    ports:
+      - "9676:5000"
+    privileged: false
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2000M

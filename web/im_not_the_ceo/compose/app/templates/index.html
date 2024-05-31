@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes App</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.js" integrity="sha384-qbtR4rS9RrUMECUWDWM2+YGgN3U4V4ZncZ0BvUcg9FGct0jqXz3PUdVpU1p0yrXS" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/json-enc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.3/purify.min.js"></script> 
+
+    <link rel="stylesheet" href="/static/styles.css">
+
+
+</head>
+<body>  
+    <div id="auth-buttons">
+        <div hx-trigger="load" hx-post="/api/loginState" hx-swap="outerHTML" style="display: none;"></div>
+    </div>
+
+    <form hx-post="/api/notes" hx-trigger="submit" hx-target="#notes-container" hx-swap="beforeend" hx-ext="json-enc">
+        <textarea name="content"></textarea><br>
+        <button type="submit">Save Note</button>
+    </form>
+
+    <button hx-get="/api/notes" hx-trigger="click" hx-target="#notes-container" hx-swap="innerHTML">Refresh Notes</button>
+
+    <div id="notes-container">
+        Loading notes...
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

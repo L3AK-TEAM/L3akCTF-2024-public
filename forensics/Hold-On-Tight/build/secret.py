@@ -1,0 +1,1 @@
+FLAG = 'L3AK{C4n7_570p_w0n7_570p_p3rs1s7}'

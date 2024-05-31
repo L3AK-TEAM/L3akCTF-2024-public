@@ -1,0 +1,13 @@
+version: '3'
+services:
+  crypto-crypto-on-the-rocks:
+    build: .
+    ports:
+      - "5667:1337"
+    privileged: false
+    restart: unless-stopped
+deploy:
+  resources:
+    limits:
+      cpus: '1'
+      memory: 500M

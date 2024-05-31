@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">KrySS</a>
+        </div>
+        <div class="flex-none">
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component"
+                  src="https://img.freepik.com/free-photo/white-notebook-black-data-firewall_1150-1733.jpg" />
+              </div>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a class="text-error" href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="grid h-20 card bg-base-900 rounded-box place-items-center">
+      <div class="container">
+        <table class="table table-zebra">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            <tr>
+              <td>
+                <div class="avatar">
+                </div>
+              </td>
+              <td>
+
+                <div class="text-lg font-bold">{{ note }}</div>
+
+              </td>
+            </tr>
+
+
+          </tbody>
+        </table>
+      </div>
+      </div>
+</body>
+
+<script src="https://cdn.tailwindcss.com"></script>
+</html>
