@@ -1,6 +1,6 @@
 # L3akCTF 2024 
 
-Welcome to the official L3ak CTF 2024
+Welcome to the official L3ak CTF 2024 challenge repo
 
 ---
 
